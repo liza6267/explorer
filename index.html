@@ -1,0 +1,1358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ancient Egypt Experience | Journey Through Time</title>
+    <style>
+        /* Import Hieroglyphic-inspired font from Google Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Quintessential&display=swap');
+        
+        :root {
+            --gold: #D4AF37;
+            --lapis-blue: #26619C;
+            --papyrus: #E7DBC5;
+            --nile-green: #157A6E;
+            --sand: #E2C391;
+            --stone: #757575;
+            --egypt-red: #C81D25;
+            --shadow: rgba(0, 0, 0, 0.3);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--papyrus);
+            color: #333;
+            overflow-x: hidden;
+            position: relative;
+        }
+        
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100" opacity="0.05"><path fill="black" d="M50 0 L100 50 L50 100 L0 50 Z"/></svg>');
+            background-size: 50px 50px;
+            z-index: -1;
+            opacity: 0.1;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(to right, var(--lapis-blue), var(--nile-green));
+            color: var(--gold);
+            padding: 1rem 2rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px var(--shadow);
+            border-bottom: 3px solid var(--gold);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .logo {
+            font-family: 'Quintessential', cursive;
+            font-size: 2rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo::before {
+            content: "𓃭";
+            margin-right: 10px;
+            font-size: 2.2rem;
+        }
+        
+        .logo::after {
+            content: "𓂀";
+            margin-left: 10px;
+            font-size: 2.2rem;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 1.5rem;
+            position: relative;
+        }
+        
+        nav ul li a {
+            display: block;
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+            color: white;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            background-color: rgba(0, 0, 0, 0.2);
+            border-radius: 4px;
+            border: 1px solid var(--gold);
+        }
+        
+        nav ul li a:hover {
+            background-color: var(--gold);
+            color: var(--lapis-blue);
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px var(--shadow);
+        }
+        
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="200" viewBox="0 0 400 200"><polygon fill="%23E2C391" points="0,200 100,50 200,100 300,0 400,150 400,200"/></svg>');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            margin-top: 70px;
+        }
+        
+        .hero::before {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 50px;
+            background: linear-gradient(to right, var(--lapis-blue), var(--nile-green), var(--gold), var(--nile-green), var(--lapis-blue));
+            background-size: 200% auto;
+            opacity: 0.8;
+            z-index: 1;
+            animation: shine 3s linear infinite;
+        }
+        
+        @keyframes shine {
+            0% { background-position: 0 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0 50%; }
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            padding: 2rem;
+            z-index: 2;
+        }
+        
+        .hero h1 {
+            font-family: 'Quintessential', cursive;
+            font-size: 4rem;
+            color: var(--gold);
+            margin-bottom: 1rem;
+            text-shadow: 3px 3px 5px var(--shadow);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            color: white;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+        
+        .cta-btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background-color: var(--gold);
+            color: var(--lapis-blue);
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            border: 2px solid var(--gold);
+            margin: 0 0.5rem;
+        }
+        
+        .cta-btn:hover {
+            background-color: transparent;
+            color: var(--gold);
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px var(--shadow);
+        }
+        
+        .sun {
+            position: absolute;
+            top: 20%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle, var(--gold), #FFD700);
+            border-radius: 50%;
+            box-shadow: 0 0 50px var(--gold), 0 0 100px rgba(255, 215, 0, 0.5);
+            animation: sunrise 15s infinite alternate ease-in-out;
+        }
+        
+        @keyframes sunrise {
+            0% { top: 20%; }
+            100% { top: 15%; }
+        }
+        
+        /* Hieroglyph Scroll */
+        .hieroglyph-scroll {
+            position: relative;
+            height: 60px;
+            background-color: var(--papyrus);
+            border-top: 2px solid var(--sand);
+            border-bottom: 2px solid var(--sand);
+            overflow: hidden;
+            margin: 0 auto;
+            padding: 10px 0;
+        }
+        
+        .hieroglyph-track {
+            display: flex;
+            position: absolute;
+            white-space: nowrap;
+            animation: scroll 30s linear infinite;
+        }
+        
+        .hieroglyph {
+            font-size: 2rem;
+            margin: 0 10px;
+            color: var(--stone);
+            transition: all 0.3s ease;
+        }
+        
+        .hieroglyph:hover {
+            color: var(--gold);
+            transform: scale(1.2);
+            cursor: pointer;
+        }
+        
+        .hieroglyph-tooltip {
+            position: absolute;
+            background-color: var(--lapis-blue);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            white-space: nowrap;
+            z-index: 100;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        
+        /* Main Content Sections */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        section {
+            padding: 4rem 0;
+            position: relative;
+        }
+        
+        section:nth-child(even) {
+            background-color: rgba(214, 198, 163, 0.2);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+            font-family: 'Quintessential', cursive;
+            color: var(--lapis-blue);
+        }
+        
+        .section-title::before, .section-title::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            width: 15%;
+            height: 3px;
+            background: linear-gradient(to right, transparent, var(--gold), transparent);
+        }
+        
+        .section-title::before {
+            left: 0;
+        }
+        
+        .section-title::after {
+            right: 0;
+        }
+        
+        /* Card Grid */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .card-img {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .card:hover .card-img img {
+            transform: scale(1.1);
+        }
+        
+        .card-content {
+            padding: 1.5rem;
+        }
+        
+        .card-title {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--lapis-blue);
+            display: flex;
+            align-items: center;
+        }
+        
+        .card-title::before {
+            content: "𓃭";
+            margin-right: 10px;
+            color: var(--gold);
+        }
+        
+        .card-text {
+            margin-bottom: 1rem;
+            color: #555;
+        }
+        
+        .card-date {
+            display: block;
+            color: var(--stone);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        
+        .card-btn {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background-color: var(--nile-green);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .card-btn:hover {
+            background-color: var(--gold);
+            color: var(--lapis-blue);
+        }
+        
+        /* Timeline Section */
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 3rem auto;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: var(--gold);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+            border-radius: 3px;
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            right: -12px;
+            background-color: white;
+            border: 4px solid var(--lapis-blue);
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        
+        .left {
+            left: 0;
+        }
+        
+        .right {
+            left: 50%;
+        }
+        
+        .right::after {
+            left: -12px;
+        }
+        
+        .timeline-content {
+            padding: 20px 30px;
+            background-color: white;
+            position: relative;
+            border-radius: 6px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .timeline-content:hover {
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            transform: translateY(-5px);
+        }
+        
+        .timeline-content h3 {
+            color: var(--lapis-blue);
+        }
+        
+        .timeline-content p {
+            margin: 1rem 0;
+        }
+        
+        /* Pyramid Animation */
+        .pyramid-container {
+            width: 100%;
+            height: 400px;
+            position: relative;
+            perspective: 1000px;
+            margin: 3rem auto;
+        }
+        
+        .pyramid {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            top: 50px;
+            left: 50%;
+            transform: translateX(-50%) rotateX(60deg) rotateZ(45deg);
+            transform-style: preserve-3d;
+            animation: rotatePyramid 20s infinite linear;
+        }
+        
+        .pyramid-side {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(to top, var(--gold), var(--sand));
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+            opacity: 0.8;
+            border: 1px solid rgba(0, 0, 0, 0.2);
+        }
+        
+        .side-front {
+            transform: translateZ(100px);
+        }
+        
+        .side-back {
+            transform: rotateY(180deg) translateZ(100px);
+        }
+        
+        .side-left {
+            transform: rotateY(-90deg) translateZ(100px);
+        }
+        
+        .side-right {
+            transform: rotateY(90deg) translateZ(100px);
+        }
+        
+        @keyframes rotatePyramid {
+            0% { transform: translateX(-50%) rotateX(60deg) rotateZ(0deg); }
+            100% { transform: translateX(-50%) rotateX(60deg) rotateZ(360deg); }
+        }
+        
+        .pyramid-shadow {
+            position: absolute;
+            width: 300px;
+            height: 100px;
+            background: radial-gradient(ellipse at center, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0) 70%);
+            top: 350px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: shadowPulse 5s infinite alternate;
+        }
+        
+        @keyframes shadowPulse {
+            0% { background: radial-gradient(ellipse at center, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0) 70%); }
+            100% { background: radial-gradient(ellipse at center, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 70%); }
+        }
+        
+        /* Interactive Hieroglyphs */
+        .hieroglyph-panel {
+            background-color: white;
+            border-radius: 8px;
+            padding: 2rem;
+            margin: 3rem auto;
+            max-width: 800px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        
+        .hieroglyph-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        
+        .hieroglyph-selector {
+            font-size: 3rem;
+            padding: 0.5rem;
+            background-color: var(--papyrus);
+            border: 2px solid var(--sand);
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .hieroglyph-selector:hover {
+            background-color: var(--gold);
+            transform: scale(1.1);
+        }
+        
+        .hieroglyph-display {
+            min-height: 100px;
+            background-color: var(--papyrus);
+            border: 2px solid var(--sand);
+            border-radius: 4px;
+            padding: 1rem;
+            margin: 1rem 0;
+            font-size: 3rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+        
+        .hieroglyph-controls {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .hieroglyph-btn {
+            padding: 0.5rem 1rem;
+            background-color: var(--nile-green);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .hieroglyph-btn:hover {
+            background-color: var(--gold);
+            color: var(--lapis-blue);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Gods Gallery */
+        .gods-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .god-card {
+            position: relative;
+            height: 350px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .god-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .god-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .god-card:hover .god-image {
+            transform: scale(1.1);
+        }
+        
+        .god-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+            padding: 1.5rem;
+            color: white;
+        }
+        
+        .god-name {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--gold);
+        }
+        
+        .god-domain {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        /* Interactive Map */
+        .map-container {
+            position: relative;
+            width: 100%;
+            height: 500px;
+            margin: 3rem auto;
+            background-color: var(--papyrus);
+            border: 5px solid var(--sand);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .map-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .map-pin {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: var(--egypt-red);
+            border-radius: 50%;
+            border: 2px solid white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .map-pin::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-top: 10px solid var(--egypt-red);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .map-pin:hover {
+            transform: scale(1.5);
+            box-shadow: 0 0 10px rgba(200, 29, 37, 0.7);
+        }
+        
+        .map-tooltip {
+            position: absolute;
+            background-color: var(--lapis-blue);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.3s;
+            z-index: 100;
+            min-width: 150px;
+        }
+        
+        /* Footer */
+        footer {
+            background: linear-gradient(to right, var(--lapis-blue), var(--nile-green));
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .footer-logo {
+            font-family: 'Quintessential', cursive;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            padding: 0.5rem;
+        }
+        
+        .footer-links a:hover {
+            color: var(--gold);
+            transform: translateY(-3px);
+        }
+        
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            background-color: var(--gold);
+            color: var(--lapis-blue);
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            background-color: var(--gold);
+            color: var(--lapis-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 1.5rem;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 999;
+        }
+        
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .logo {
+                margin-bottom: 1rem;
+            }
+            
+            nav ul {
+                flex-direction: column;
+            }
+            
+            nav ul li {
+                margin: 0.5rem 0;
+                margin-left: 0;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item::after {
+                left: 19px;
+            }
+            
+            .left::after, .right::after {
+                left: 19px;
+            }
+            
+            .right {
+                left: 0%;
+            }
+            
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .gods-gallery {
+                grid-template-columns: 1fr;
+            }
+            
+            .pyramid-container {
+                height: 300px;
+            }
+            
+            .pyramid {
+                width: 200px;
+                height: 200px;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+        
+        .animate-on-scroll.in-view {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">Ancient Egypt Experience</div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#history">History</a></li>
+                    <li><a href="#architecture">Architecture</a></li>
+                    <li><a href="#gods">Gods</a></li>
+                    <li><a href="#culture">Daily Life</a></li>
+                    <li><a href="#hieroglyphs">Hieroglyphs</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="sun"></div>
+        <div class="hero-content">
+            <h1>Journey Through Ancient Egypt</h1>
+            <p>Explore the wonders of one of the world's greatest civilizations. Discover the secrets of the Pharaohs, marvel at architectural masterpieces, and unlock the mysteries of hieroglyphic writing.</p>
+            <a href="#history" class="cta-btn">Begin Exploration</a>
+            <a href="#hieroglyphs" class="cta-btn" style="background-color: var(--lapis-blue); color: var(--gold);">Try Hieroglyphs</a>
+        </div>
+    </section>
+
+    <div class="hieroglyph-scroll">
+        <div class="hieroglyph-track">
+            <span class="hieroglyph" data-tooltip="Ankh (Life)">𓋹</span>
+            <span class="hieroglyph" data-tooltip="Eye of Horus (Protection)">𓂀</span>
+            <span class="hieroglyph" data-tooltip="Djet (Stability)">𓊽</span>
+            <span class="hieroglyph" data-tooltip="Scarab (Transformation)">𓆣</span>
+            <span class="hieroglyph" data-tooltip="Was Sceptre (Power)">𓌀</span>
+            <span class="hieroglyph" data-tooltip="Lotus (Rebirth)">𓆸</span>
+            <span class="hieroglyph" data-tooltip="Obelisk (Eternity)">𓉐</span>
+            <span class="hieroglyph" data-tooltip="Falcon (Horus)">𓃭</span>
+            <span class="hieroglyph" data-tooltip="Cobra (Wadjet)">𓆜</span>
+            <span class="hieroglyph" data-tooltip="Vulture (Nekhbet)">𓅐</span>
+            <span class="hieroglyph" data-tooltip="Lion (Strength)">𓃭</span>
+            <span class="hieroglyph" data-tooltip="Bee (Lower Egypt)">𓆤</span>
+            <span class="hieroglyph" data-tooltip="Sedge (Upper Egypt)">𓇓</span>
+            <span class="hieroglyph" data-tooltip="Water (Nile)">𓈗</span>
+            <span class="hieroglyph" data-tooltip="Sun Disk (Ra)">𓇳</span>
+            <span class="hieroglyph" data-tooltip="Moon (Khonsu)">𓇹</span>
+        </div>
+        <div class="hieroglyph-tooltip"></div>
+    </div>
+
+    <section id="history" class="container">
+        <h2 class="section-title animate-on-scroll">Egyptian Timeline</h2>
+        <div class="timeline">
+            <div class="timeline-item left animate-on-scroll">
+                <div class="timeline-content">
+                    <h3>Pre-Dynastic Period (6000-3100 BCE)</h3>
+                    <p>Early settlements along the Nile develop into complex societies. The unification of Upper and Lower Egypt marks the beginning of Egyptian civilization.</p>
+                </div>
+            </div>
+            <div class="timeline-item right animate-on-scroll">
+                <div class="timeline-content">
+                    <h3>Old Kingdom (2686-2181 BCE)</h3>
+                    <p>The Age of Pyramids. Construction of the Great Pyramid of Giza. Development of hieroglyphic writing and complex bureaucracy.</p>
+                </div>
+            </div>
+            <div class="timeline-item left animate-on-scroll">
+                <div class="timeline-content">
+                    <h3>Middle Kingdom (2055-1650 BCE)</h3>
+                    <p>Egypt reunifies after a period of fragmentation. Expansion into Nubia. The Faiyum region is developed, and literature flourishes.</p>
+                </div>
+            </div>
+            <div class="timeline-item right animate-on-scroll">
+                <div class="timeline-content">
+                    <h3>New Kingdom (1550-1069 BCE)</h3>
+                    <p>Egypt's golden age. Great temples at Luxor and Karnak built. Famous rulers like Hatshepsut, Thutmose III, Akhenaten, and Ramses II.</p>
+                </div>
+            </div>
+            <div class="timeline-item left animate-on-scroll">
+                <div class="timeline-content">
+                    <h3>Late Period (664-332 BCE)</h3>
+                    <p>Period of foreign domination, including Persian rule. Despite challenges, art and architecture continue to thrive.</p>
+                </div>
+            </div>
+            <div class="timeline-item right animate-on-scroll">
+                <div class="timeline-content">
+                    <h3>Ptolemaic Period (332-30 BCE)</h3>
+                    <p>Alexander the Great conquers Egypt. The reign of Cleopatra VII. Construction of the famous Library of Alexandria.</p>
+                </div>
+            </div>
+            <div class="timeline-item left animate-on-scroll">
+                <div class="timeline-content">
+                    <h3>Roman Period (30 BCE - 641 CE)</h3>
+                    <p>Egypt becomes a Roman province. The rise of Coptic Christianity. Gradual decline of hieroglyphic writing.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="architecture" class="container">
+        <h2 class="section-title animate-on-scroll">Architectural Marvels</h2>
+        <div class="pyramid-container animate-on-scroll">
+            <div class="pyramid">
+                <div class="pyramid-side side-front"></div>
+                <div class="pyramid-side side-back"></div>
+                <div class="pyramid-side side-left"></div>
+                <div class="pyramid-side side-right"></div>
+            </div>
+            <div class="pyramid-shadow"></div>
+        </div>
+        <div class="card-grid">
+            <div class="card animate-on-scroll">
+                <div class="card-img">
+                    <img src="https://images.unsplash.com/photo-1503177119275-0aa32b3a9368?q=80&w=1000" alt="Great Pyramid of Giza">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Great Pyramid of Giza</h3>
+                    <span class="card-date">Old Kingdom (2580–2560 BCE)</span>
+                    <p class="card-text">The sole survivor of the Seven Wonders of the Ancient World, built as a tomb for Pharaoh Khufu.</p>
+                    <a href="#" class="card-btn">Explore Pyramid</a>
+                </div>
+            </div>
+            <div class="card animate-on-scroll">
+                <div class="card-img">
+                    <img src="https://www.worldhistory.org/img/r/p/1000x1200/10730.jpg.webp?v=1680526437" alt="Karnak Temple">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Karnak Temple Complex</h3>
+                    <span class="card-date">Middle Kingdom through Ptolemaic Period</span>
+                    <p class="card-text">The largest religious building ever constructed, dedicated to the Theban triad of gods.</p>
+                    <a href="#" class="card-btn">Explore Temple</a>
+                </div>
+            </div>
+            <div class="card animate-on-scroll">
+                <div class="card-img">
+                    <img src="https://images.unsplash.com/photo-1545281734-8a4c8934c8f7?q=80&w=1000" alt="Abu Simbel">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Abu Simbel</h3>
+                    <span class="card-date">New Kingdom (1279–1213 BCE)</span>
+                    <p class="card-text">Twin temples carved into a mountainside under Ramses II, featuring colossal statues.</p>
+                    <a href="#" class="card-btn">Explore Temple</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="gods" class="container">
+        <h2 class="section-title animate-on-scroll">Egyptian Pantheon</h2>
+        <div class="gods-gallery">
+            <div class="god-card animate-on-scroll">
+                <img src="https://www.worldhistory.org/img/r/p/1000x1200/113.jpg.webp?v=1648381122" alt="Ra" class="god-image">
+                <div class="god-overlay">
+                    <h3 class="god-name">Ra</h3>
+                    <p class="god-domain">God of the Sun</p>
+                </div>
+            </div>
+            <div class="god-card animate-on-scroll">
+                <img src="https://www.worldhistory.org/img/r/p/1000x1200/2585.jpg.webp?v=1698334887" alt="Osiris" class="god-image">
+                <div class="god-overlay">
+                    <h3 class="god-name">Osiris</h3>
+                    <p class="god-domain">God of the Afterlife</p>
+                </div>
+            </div>
+            <div class="god-card animate-on-scroll">
+                <img src="https://www.worldhistory.org/img/r/p/1000x1200/2586.jpg.webp?v=1698334921" alt="Isis" class="god-image">
+                <div class="god-overlay">
+                    <h3 class="god-name">Isis</h3>
+                    <p class="god-domain">Goddess of Magic & Motherhood</p>
+                </div>
+            </div>
+            <div class="god-card animate-on-scroll">
+                <img src="https://www.worldhistory.org/img/r/p/1000x1200/2583.jpg.webp?v=1698334561" alt="Horus" class="god-image">
+                <div class="god-overlay">
+                    <h3 class="god-name">Horus</h3>
+                    <p class="god-domain">God of Kingship</p>
+                </div>
+            </div>
+            <div class="god-card animate-on-scroll">
+                <img src="https://www.worldhistory.org/img/r/p/1000x1200/2584.jpg.webp?v=1698334820" alt="Anubis" class="god-image">
+                <div class="god-overlay">
+                    <h3 class="god-name">Anubis</h3>
+                    <p class="god-domain">God of Mummification</p>
+                </div>
+            </div>
+            <div class="god-card animate-on-scroll">
+                <img src="https://www.worldhistory.org/img/r/p/1000x1200/2587.jpg.webp?v=1698334947" alt="Thoth" class="god-image">
+                <div class="god-overlay">
+                    <h3 class="god-name">Thoth</h3>
+                    <p class="god-domain">God of Wisdom & Writing</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="culture" class="container">
+        <h2 class="section-title animate-on-scroll">Daily Life in Egypt</h2>
+        <div class="map-container animate-on-scroll">
+            <img src="https://www.worldhistory.org/img/r/p/1000x1200/4353.jpg.webp?v=1657851157" alt="Ancient Egypt Map" class="map-image">
+            <div class="map-pin" style="top: 30%; left: 40%;" data-title="Memphis" data-description="Capital of the Old Kingdom, center of worship for Ptah"></div>
+            <div class="map-pin" style="top: 45%; left: 50%;" data-title="Thebes" data-description="Capital during New Kingdom, home to Karnak and Luxor temples"></div>
+            <div class="map-pin" style="top: 55%; left: 55%;" data-title="Abu Simbel" data-description="Great temple of Ramses II"></div>
+            <div class="map-pin" style="top: 35%; left: 48%;" data-title="Faiyum" data-description="Agricultural center with extensive irrigation works"></div>
+            <div class="map-pin" style="top: 65%; left: 46%;" data-title="Aswan" data-description="Source of Egypt's granite"></div>
+            <div class="map-tooltip"></div>
+        </div>
+        <div class="card-grid">
+            <div class="card animate-on-scroll">
+                <div class="card-img">
+                    <img src="https://www.worldhistory.org/img/r/p/1000x1200/11195.jpg.webp?v=1678381148" alt="Agriculture in Egypt">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Agriculture & The Nile</h3>
+                    <p class="card-text">The annual flooding of the Nile fertilized the land. Egyptians grew wheat, barley, flax, and vegetables. They developed complex irrigation systems.</p>
+                    <a href="#" class="card-btn">Learn More</a>
+                </div>
+            </div>
+            <div class="card animate-on-scroll">
+                <div class="card-img">
+                    <img src="https://www.worldhistory.org/img/r/p/1000x1200/11487.jpg.webp?v=1684927427" alt="Egyptian Trade">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Trade & Commerce</h3>
+                    <p class="card-text">Egypt traded gold, papyrus, linen, and grain for wood, incense, oils, and luxury goods. Merchant ships sailed the Nile and Mediterranean.</p>
+                    <a href="#" class="card-btn">Learn More</a>
+                </div>
+            </div>
+            <div class="card animate-on-scroll">
+                <div class="card-img">
+                    <img src="https://www.worldhistory.org/img/r/p/1000x1200/10421.jpg.webp?v=1668019025" alt="Egyptian Art">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Art & Crafts</h3>
+                    <p class="card-text">Highly skilled artisans created jewelry, pottery, furniture, and statues with symbolic meaning. They followed strict artistic conventions.</p>
+                    <a href="#" class="card-btn">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="hieroglyphs" class="container">
+        <h2 class="section-title animate-on-scroll">Decode Hieroglyphs</h2>
+        <div class="hieroglyph-panel animate-on-scroll">
+            <p>Create your own hieroglyphic message by clicking on the symbols below. Combine them to spell names or words (note: real Egyptian hieroglyphs are more complex than this simple representation).</p>
+            
+            <div class="hieroglyph-display" id="hieroglyphDisplay"></div>
+            
+            <div class="hieroglyph-grid">
+                <div class="hieroglyph-selector" data-glyph="𓃭">𓃭</div>
+                <div class="hieroglyph-selector" data-glyph="𓃗">𓃗</div>
+                <div class="hieroglyph-selector" data-glyph="𓃻">𓃻</div>
+                <div class="hieroglyph-selector" data-glyph="𓃾">𓃾</div>
+                <div class="hieroglyph-selector" data-glyph="𓄋">𓄋</div>
+                <div class="hieroglyph-selector" data-glyph="𓀿">𓀿</div>
+                <div class="hieroglyph-selector" data-glyph="𓁿">𓁿</div>
+                <div class="hieroglyph-selector" data-glyph="𓂀">𓂀</div>
+                <div class="hieroglyph-selector" data-glyph="𓅓">𓅓</div>
+                <div class="hieroglyph-selector" data-glyph="𓆣">𓆣</div>
+                <div class="hieroglyph-selector" data-glyph="𓋹">𓋹</div>
+                <div class="hieroglyph-selector" data-glyph="𓃯">𓃯</div>
+            </div>
+            
+            <div class="hieroglyph-controls">
+                <button class="hieroglyph-btn" id="clearBtn">Clear</button>
+                <button class="hieroglyph-btn" id="translateBtn">Translate</button>
+                <button class="hieroglyph-btn" id="randomBtn">Random</button>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">𓃭 Ancient Egypt Experience 𓂀</div>
+            <div class="footer-links">
+                <a href="#home">Home</a>
+                <a href="#history">History</a>
+                <a href="#architecture">Architecture</a>
+                <a href="#gods">Gods</a>
+                <a href="#culture">Daily Life</a>
+                <a href="#hieroglyphs">Hieroglyphs</a>
+            </div>
+            <div class="social-icons">
+                <a href="#" class="social-icon">𓃭</a>
+                <a href="#" class="social-icon">𓂀</a>
+                <a href="#" class="social-icon">𓆣</a>
+                <a href="#" class="social-icon">𓋹</a>
+            </div>
+            <p class="copyright">© 2023 Ancient Egypt Experience. All rights reserved. This is an educational project.</p>
+        </div>
+    </footer>
+
+    <a href="#" class="back-to-top">↑</a>
+
+    <script>
+        // Intersection Observer for animations
+        document.addEventListener('DOMContentLoaded', function() {
+            const animateElements = document.querySelectorAll('.animate-on-scroll');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('in-view');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+            
+            animateElements.forEach(element => {
+                observer.observe(element);
+            });
+            
+            // Hieroglyph tooltips
+            const hieroglyphs = document.querySelectorAll('.hieroglyph');
+            const hieroglyphTooltip = document.querySelector('.hieroglyph-tooltip');
+            
+            hieroglyphs.forEach(hieroglyph => {
+                hieroglyph.addEventListener('mouseover', function(e) {
+                    const tooltipText = this.getAttribute('data-tooltip');
+                    hieroglyphTooltip.textContent = tooltipText;
+                    hieroglyphTooltip.style.opacity = '1';
+                    
+                    const rect = this.getBoundingClientRect();
+                    hieroglyphTooltip.style.left = `${rect.left + rect.width / 2}px`;
+                    hieroglyphTooltip.style.top = `${rect.top - 40}px`;
+                });
+                
+                hieroglyph.addEventListener('mouseout', function() {
+                    hieroglyphTooltip.style.opacity = '0';
+                });
+            });
+            
+            // Map tooltips
+            const mapPins = document.querySelectorAll('.map-pin');
+            const mapTooltip = document.querySelector('.map-tooltip');
+            
+            mapPins.forEach(pin => {
+                pin.addEventListener('mouseover', function(e) {
+                    const title = this.getAttribute('data-title');
+                    const description = this.getAttribute('data-description');
+                    
+                    mapTooltip.innerHTML = `<h3>${title}</h3><p>${description}</p>`;
+                    mapTooltip.style.opacity = '1';
+                    
+                    const rect = this.getBoundingClientRect();
+                    mapTooltip.style.left = `${rect.left + rect.width / 2}px`;
+                    mapTooltip.style.top = `${rect.top - 120}px`;
+                    mapTooltip.style.transform = 'translateX(-50%)';
+                });
+                
+                pin.addEventListener('mouseout', function() {
+                    mapTooltip.style.opacity = '0';
+                });
+            });
+            
+            // Back to top button
+            const backToTopBtn = document.querySelector('.back-to-top');
+            
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    backToTopBtn.classList.add('active');
+                } else {
+                    backToTopBtn.classList.remove('active');
+                }
+            });
+            
+            backToTopBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+            
+            // Hieroglyph maker
+            const hieroglyphDisplay = document.getElementById('hieroglyphDisplay');
+            const hieroglyphSelectors = document.querySelectorAll('.hieroglyph-selector');
+            const clearBtn = document.getElementById('clearBtn');
+            const translateBtn = document.getElementById('translateBtn');
+            const randomBtn = document.getElementById('randomBtn');
+            
+            hieroglyphSelectors.forEach(selector => {
+                selector.addEventListener('click', function() {
+                    const glyph = this.getAttribute('data-glyph');
+                    hieroglyphDisplay.textContent += glyph;
+                });
+            });
+            
+            clearBtn.addEventListener('click', function() {
+                hieroglyphDisplay.textContent = '';
+            });
+            
+            translateBtn.addEventListener('click', function() {
+                const currentContent = hieroglyphDisplay.textContent;
+                if (currentContent) {
+                    alert(`Your hieroglyphs: ${currentContent}\n\nWhile not a direct translation (real Egyptian is more complex), this sequence represents ${getRandomResult()}`);
+                } else {
+                    alert('Please select some hieroglyphs first!');
+                }
+            });
+            
+            randomBtn.addEventListener('click', function() {
+                hieroglyphDisplay.textContent = '';
+                const count = Math.floor(Math.random() * 5) + 3;
+                for (let i = 0; i < count; i++) {
+                    const randomGlyph = hieroglyphSelectors[Math.floor(Math.random() * hieroglyphSelectors.length)];
+                    hieroglyphDisplay.textContent += randomGlyph.getAttribute('data-glyph');
+                }
+            });
+            
+            function getRandomResult() {
+                const possibilities = [
+                    "a name of royal significance",
+                    "a protective spell",
+                    "a prayer to the gods",
+                    "a record of a military victory",
+                    "an invocation for good harvest",
+                    "a dedication to a pharaoh",
+                    "the title of a high official",
+                    "a blessing for the afterlife"
+                ];
+                return possibilities[Math.floor(Math.random() * possibilities.length)];
+            }
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 70,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+<p style="border-radius: 8px; text-align: center; font-size: 12px; color: #fff; margin-top: 16px;position: absolute; left: 8px; bottom: 8px; z-index: 10; background: rgba(0, 0, 0, 0.8); padding: 4px 8px;">This website has been generated by <a href="https://enzostvs-deepsite.hf.space" style="color: #fff;" target="_blank" >DeepSite</a> <img src="https://enzostvs-deepsite.hf.space/logo.svg" alt="DeepSite Logo" style="width: 16px; height: 16px; vertical-align: middle;"></p></body>
+</html>
